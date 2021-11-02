@@ -1,0 +1,508 @@
+ <!DOCTYPE html>
+ <html lang="pt-br">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="./src/assets/style.css">
+     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/000000/external-agenda-business-those-icons-lineal-color-those-icons.png" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+        main {
+            margin: 1rem;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            box-shadow: 0px 0px 50px -4px rgb(0 0 0 / 60%);
+        }
+
+        #box1 {
+            margin: 1rem;
+            border: 1px solid transparent;
+            border-radius: 24px 4px;
+        }
+
+        #titulo {
+            margin: .8rem;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        #box_subtitulo {
+            display: flex;
+            padding: 1rem;
+        }
+
+        #subtitulo {
+            font-family: 'Montserrat', sans-serif;
+            border-radius: 24px 4px;
+            background: #17193a;
+            color: #fff;
+            padding: 1rem;
+        }
+
+        #box_addBtn {
+            padding: 1rem;
+            margin: 0 1rem;
+
+        }
+
+        #addBtn {
+            background-color: #17193a;
+            border: 2px solid transparent;
+            border-radius: 24px 4px;
+            color: #fff;
+            font-family: 'Archivo', sans-serif;
+            padding: 1rem;
+            transition: all .2s ease-in-out;
+        }
+
+        #addBtn:hover {
+            transform: scale(1.1);
+        }
+
+        #addBtn:active {
+            background-color: #fff;
+            border-color: #17193a;
+            color: #17193a;
+        }
+
+        table {
+            
+            display: flex;
+            justify-content: center;
+            margin: 1rem;
+            flex-direction: column;
+        }
+
+        thead {
+            background-color: #17193a;
+            border: 1px solid transparent;
+            border-radius: 24px 4px;
+            
+        }
+
+        tbody{
+            background-color: #b3bac2;
+            border: 1px solid transparent;
+            border-radius: 8px;
+        }
+
+        th {
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            padding: .8rem 2rem;
+        }
+
+        td {
+            color: #000;
+            font-family: 'Archivo', sans-serif;
+            padding: .8rem 2rem;
+            margin: 0;
+        }
+
+
+        #editaBtn {
+            background-color: #17193a;
+            border: 1px solid transparent;
+            border-radius: 10px;
+            color: #fff;
+            padding: 1rem;
+            transition: all .2s ease-in-out;
+        }
+
+        #removeBtn {
+            background-color: red;
+            border: 1px solid transparent;
+            border-radius: 10px;
+            color: #fff;
+            padding: 1rem;
+            transition: all .2s ease-in-out;
+        }
+
+        #removeBtn:hover, #editaBtn:hover {
+            transform: scale(1.1)
+        }
+
+        #removeBtn:active {
+            background-color: #fff;
+            border-color: red;
+            color: red;
+        }
+
+        #editaBtn:active {
+            background-color: #fff;
+            border-color: #17193a;
+            color: #17193a;
+        }
+
+        #card_titulo, label,
+        input, #box_erros, button {
+            font-family: 'Archivo', sans-serif;
+        }
+
+        #box_erros {
+            color: red;
+        }
+
+        #nome, #numero {
+            background: #b3bac2;
+            border: 1px solid transparent;
+            border-radius: 24px 4px;
+            font-style: italic;
+            padding: .3rem 5rem 0 .3rem;
+        }
+
+        #nome::placeholder, #numero::placeholder {
+            color: #000;
+        }
+
+        #salvar {
+            background-color: #17193a;
+            border: 1px solid transparent;
+            border-radius: 24px 4px;
+            color: #fff;
+            padding: .5rem 1rem;
+            transition: all .2s ease-in-out;
+        }
+
+        #fechar {
+            background-color: red;
+            border: 1px solid transparent;
+            border-radius: 24px 4px;
+            color: #fff;
+            padding: .5rem 1rem;
+            transition: all .2s ease-in-out;
+        }
+
+        #salvar:hover, #fechar:hover {
+            border-color: #fff;
+        }
+
+        #salvar:active {
+            background: #fff;
+            border-color: #17193a;
+            color: #17193a;
+        }
+
+        #fechar:active {
+            background: #fff;
+            border-color: red;
+            color: red;
+        }
+
+        #backgroundBlue {
+            color: #fff;
+            background-color: #1c5b88;
+        }
+
+        footer {
+            font-family: 'Archivo', sans-serif;
+            color: #17193a;
+            text-align: center;
+            padding: 1rem;
+            text-decoration: underline;
+        }
+
+        a {
+            color: #000;
+            transition: all .2s ease-in-out;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #17193a;
+        }
+        a:active {
+            color:#33a1fd
+        }
+
+        @media (max-width:768px) {
+            main {
+                width: 100%;
+                height: auto;
+            }
+
+            table, thead, tbody {
+                width: 95%;
+                
+            }
+
+            td,#editaBtn, #removeBtn {
+                padding: .5rem;
+            }
+
+        }
+
+    </style>
+     <title>Lista telefônica</title>
+ </head>
+ <body>
+     <main id="app">
+        <header>
+            <h1 id="titulo">Port Louis</h1>
+        </header>
+        <section>
+            <div id="box1">
+                <div class="box_subtitulo">
+                    <h3 id="subtitulo">Lista telefônica</h3>
+                </div>
+                <div id="box_addBtn">
+                    <button id="addBtn"@click="chamaModal">Adicionar</button>
+                </div>
+            </div>
+            <div id="box_tabela">
+                <table id="tabela">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Telefone</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(contato,index) in contatos" :key='index' :id="verificaDDD(contato.numero)">
+                            <td>{{contato.nome}}</td>
+                            <td>{{contato.numero}}</td>
+                            <td id="box_btn">
+                                <button id="editaBtn" @click="editar(index)">Editar</button>
+                                <button id="removeBtn" @click="remove(index)">Excluir</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div data-app>
+                <v-dialog v-model="mostraModal">
+                    <v-card>
+                        <v-card-title id="card_titulo" class="text-h5 grey lighten-2">
+                            Contato
+                        </v-card-title>
+                        <v-card-text>
+                            <div>
+                                <div>
+                                    <div id="box_nome">
+                                        <label for="nome">Nome</label>
+                                        <div v-if="mostraModalEdit">
+                                            <input class="form-control" type="text" id="nome" value="nome"
+                                                placeholder="Digite seu nome..." v-model="nome">
+                                        </div>
+                                        <div v-else>
+                                            <input class="form-control" type="text" id="nome"
+                                                placeholder="Digite seu nome..." v-model="nome">
+                                        </div>
+                                        <div id="box_erros" v-if="errorNome.length">
+                                            {{errorNome}}
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div>
+                                    <div>
+                                        <label for="numero">Telefone</label>
+                                        <div v-if="mostraModalEdit">
+                                            <input class="form-control" type="text" id="numero" value="numero"
+                                                placeholder="(xx) xxxxx-xxxx"
+                                                v-model="numero" @keypress="mascaraNumero" maxlength="14">
+                                        </div>
+                                        <div v-else>
+                                            <input class="form-control" type="text" id="numero"
+                                                placeholder="(xx) xxxxx-xxxx"
+                                                v-model="numero" @keypress="mascaraNumero" maxlength="14">
+                                        </div>
+                                    </div>
+                                    <div id="box_erros" v-if="errorNumero.length">
+                                        {{ errorNumero }}
+                                    </div>
+                                </div>
+                            </div>
+                        </v-card-text>
+                        <v-divider></v-divider>
+                        <div id="box_modalBtn">
+                            <button id="salvar" v-if="!mostraModalEdit" @click="salvar">Salvar
+                                contato</button>
+                            <button id="salvar" v-else @click="salvar">Salvar edição</button>
+                            <button id="fechar" @click="chamaModal">Fechar</button>
+                        </div>
+                    </v-card>
+                </v-dialog>
+            </div>
+        </section>
+        
+    </main>
+    <footer>Orgulhosamente feito por <a href="https://jovimoura.github.io/portfolio/" target="_blank"> João Victor Moura</a></footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script>
+        // Objeto com erros
+        let errors = {
+            ERROR_NOME: 'Preencha corretamente o campo! O campo precisa ter no mínimo duas palavras de no mínimo 3 letras cada',
+            ERROR_NUMERO: 'O campo do telefone deve conter apenas números! E o número de telefone    deve serguir o modelo (xx)xxxx-xxxx'
+        }
+        // Classe para validação de inputs
+        class Valida {
+            constructor(erros) {
+                this.errors = errors
+            }
+            /**
+             * Validação nome
+             * @param {*} nome // Nomeando param e returns
+             * @returns {(object)}
+             */
+            validaNome(nome) {
+                if (nome) {
+                    const array = nome.split(' ')
+                    const [priNome, segNome] = array//destructing
+                    if (array.length >= 2) {
+                        if (priNome.length >= 3 && segNome.length >= 3) {
+                            return {
+                                status: true,
+                                body: ''
+                            }
+                        }
+                        return {
+                            status: false,
+                            body: this.errors.ERROR_NOME
+                        }
+                    }
+                    return {
+                        status: false,
+                        body: this.errors.ERROR_NOME
+                    }
+                }
+                return {
+                    status: false,
+                    body: this.errors.ERROR_NOME
+                }
+            }
+             /**
+             * Validação de numero
+             * @param {*} numero
+             * @returns {(object)}
+             */
+            validaNumero(numero) {
+                if (numero) {
+                    const pattern = /^\([0-9]{2}\) [0-9]{4}-[0-9]{4}$/
+                    if (pattern.test(numero)) {
+                        return {
+                            status: true,
+                            body: ''
+                        }
+                    }
+                    return {
+                        status: false,
+                        body: this.errors.ERROR_NUMERO
+                    }
+                }
+                return {
+                    status: false,
+                    body: this.errors.ERROR_NUMERO
+                }
+            }
+        }
+        let app = new Vue({
+            el: '#app',
+            vuetify: new Vuetify(), // Biblioteca auxiliar
+            data: {
+                nome: '', // Nome do usuário
+                numero: '', // Número de telefone do usuário
+                mostraModal: false, // Variável que verifica se o usuário está editando alguma informação
+                mostraModalEdit: false, // Variável que controla a visibilidade do modal
+                errorNome: '', // Variável que vai receber a mensagem de erro para o nome do usuário
+                errorNumero: '',  // Variável que vai receber a mensagem de erro para o telefone do usuário
+                contatos: [], // Variável que vai armazenar todas as informações
+                idEdicao: ''  // Variável que vai receber o id do usuário que vai ser editado
+
+            },
+            methods: {
+                chamaModal() {
+                    // Função que chama o modal
+                    this.mostraModal = !this.mostraModal
+                    this.mostraModalEdit = false
+                    this.resetaDados()
+                },
+                salvar() {
+                    const validacao = new Valida(errors)
+
+                    const resultNome = validacao.validaNome(this.nome)
+
+                    this.errorNome = resultNome.body
+
+                    const resultNumero = validacao.validaNumero(this.numero)
+
+                    this.errorNumero = resultNumero.body
+
+                    /**
+                    * Se o usuário não estiver editando os dados e todas informações estiverem corretas, os dados serão salvos
+                    */
+                    if (resultNome.status && resultNumero.status && !this.mostraModalEdit) {
+                        this.contatos.push({
+                            nome: this.nome,
+                            numero: this.numero
+                        })
+                        this.mostraModal= false
+                        this.resetaDados()
+                    } else if (resultNome.status && resultNumero.status) {
+                        this.mostraModal = false
+                        this.contatos[this.idEdicao].nome = this.nome
+                        this.contatos[this.idEdicao].numero = this.numero
+                        this.resetaDados()
+                    
+                    }
+                },
+                editar(id) {
+                    // Função que chama o modal de edição
+                    this.idEdicao = parseInt(id)
+                    this.mostraModal = true
+                    this.mostraModalEdit = true
+                    this.nome = this.contatos[this.idEdicao].nome
+                    this.numero = this.contatos[this.idEdicao].numero
+                },
+                remove(id) {
+                    // Remove o usuário da lista
+                    this.contatos= this.contatos.filter((contato, index) => id !== index)
+                },
+                mascaraNumero(numero) {
+                    // Função que cria a máscara para o número de telefone
+                    if (this.numero.length === 1) {
+                        const digit = this.numero
+                        this.numero = `(${digit}`
+                    } else if (this.numero.length === 3) {
+                        this.numero += ') '
+                    } else if (this.numero.length === 9) {
+                        this.numero += '-'
+                    }
+                },
+                verificaDDD(numero) {
+                    // Função que verifica se o ddd é 11
+                    let ddd = parseInt(numero.slice(1, 3))
+                    if(ddd === 11){
+                        return 'backgroundBlue'
+                    }else {
+                        return ''
+                    }
+                    
+                },
+                resetaDados() {
+                    // Função que reseta as variáveis
+                    this.nome = ''
+                    this.numero = ''
+                    this.errorNome = ''
+                    this.errorNumero = ''
+                }
+            }
+        })
+
+    </script>
+ </body>
+ </html>
