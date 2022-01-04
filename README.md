@@ -11,6 +11,9 @@ Foram utilizadas algumas funções básicas encontradas no vue, como o v-for, e 
 ```
 https://jovimoura.github.io/listaTelefonica-portlouis/
 ```
+ 
+## Imagem do projeto 🖥️:
+<img src="./listaTelefonica-port.png">
 
 ## Tecnologias utilizadas:🦉
 
