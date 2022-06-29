@@ -1,6 +1,6 @@
 # Lista Telefônica🚀
 
-Este é um projeto que desenvolvi no processo seletivo da Port Louis, trata-se de uma lista telefonica feita com VueJS CDN e Vuetify.
+Este projeto trata-se de uma lista telefonica feita com VueJS CDN e Vuetify.
 
 ## Como foi feito?🤔
 
@@ -13,7 +13,7 @@ https://jovimoura.github.io/listaTelefonica-portlouis/
 ```
  
 ## Imagem do projeto 🖥️:
-<img src="./listaTelefonica-port.png">
+<img src="./listaTelefonicat.png">
 
 ## Tecnologias utilizadas:🦉
 
